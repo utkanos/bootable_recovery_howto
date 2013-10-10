@@ -1,0 +1,12 @@
+#!/system/bin/sh
+#Clean Busybox
+#Removes all except kernel busybox (Reboot is required)
+
+/sbin/boot/busybox.sh
+
+/sbin/busybox mount -o remount,rw  /system
+
+rm -f /system/xbin/busybox
+rm -f /system/bin/busybox
+
+/sbin/busybox mount -o remount,ro  /system
